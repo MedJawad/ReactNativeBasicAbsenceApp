@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   useEffect(() => {
-    RNBootSplash.show();
+    // RNBootSplash.show();
 
     db.openDatabase();
     // db.deleteDatabase();

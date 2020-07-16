@@ -19,7 +19,9 @@ const SwipeableItem = ({
   const xTrans = React.useRef(new Animated.Value(0.01)).current;
   const panResponder = React.useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: (evt, gestureState) => true,
+      onMoveShouldSetPanResponder: (event, gesture) => {
+        return Math.abs(gesture.dx) > 5;
+      },
       onPanResponderMove: Animated.event([null, {dx: xTrans}], {
         useNativeDriver: false,
       }),

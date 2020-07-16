@@ -69,6 +69,11 @@ const AbsenceScreen = props => {
         </Text>
       </View>
       <View style={styles.body}>
+        {absences.length < 1 && (
+          <Text style={{...styles.centredText}}>
+            No absences recorded for this student
+          </Text>
+        )}
         <FlatList
           data={absences}
           renderItem={({item, index}) => (
@@ -163,5 +168,11 @@ const styles = StyleSheet.create({
     width: '95%',
     padding: 10,
     marginVertical: 4,
+  },
+  centredText: {
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginVertical: 5,
   },
 });

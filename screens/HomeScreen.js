@@ -7,6 +7,8 @@ import RNBootSplash from 'react-native-bootsplash';
 import SwipeableItem from '../components/SwipeableItem';
 
 const HomeScreen = props => {
+  RNBootSplash.hide({duration: 500});
+
   const [classes, setClasses] = useState([]);
   const [modalVisible, setModalVisible] = useState({
     visibility: false,
@@ -27,7 +29,6 @@ const HomeScreen = props => {
   const deleteClasse = classeNom => {
     db.deleteClasse(classeNom).then(db.fetchClasses(receiveClasses));
   };
-  RNBootSplash.hide({duration: 400});
 
   const handleAddClasse = () => {
     addClasse()
@@ -64,6 +65,9 @@ const HomeScreen = props => {
       <View style={styles.header}>
         <Text style={styles.bigText}>
           Bienvenue dans l'application de gestion d'absence
+        </Text>
+        <Text style={styles.bigText}>
+          par: <Text style={styles.nomText}>Aatafay Mohamed Jawad</Text>
         </Text>
       </View>
       <View style={styles.body}>
@@ -149,6 +153,12 @@ const styles = StyleSheet.create({
   },
   bigText: {
     color: '#EFE3D7',
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  nomText: {
+    color: '#CDA3A4',
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center',
